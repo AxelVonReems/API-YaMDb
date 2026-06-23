@@ -1,113 +1,113 @@
 [![Django-app workflow](https://github.com/AxelVonReems/yamdb_final/actions/workflows/yamdb_workflow.yml/badge.svg?branch=master)](https://github.com/AxelVonReems/yamdb_final/actions/workflows/yamdb_workflow.yml)
 
-# Проект YaMDb
+# YaMDb Project
 
-API для сервиса YaMDb - сбор отзывов пользователей на книги, фильмы и музыку.
+API for the YaMDb service - a platform for collecting user reviews on books, movies, and music.
 
-Проект доступен по адресу: http://51.250.23.204/admin/
+Project URL: http://51.250.23.204/admin/
 
-Документация доступна по адресу: http://51.250.23.204/redoc/
+Documentation URL: http://51.250.23.204/redoc/
 
-## Описание проекта
+## Project Description
 
-Проект YaMDb собирает отзывы пользователей на произведения. Произведения делятся на категории: «Книги», «Фильмы», «Музыка». В каждой категории есть произведения: книги, фильмы или музыка. Произведению может быть присвоен жанр. Новые жанры может создавать только администратор. Пользователи могут оставить к произведениям текстовые отзывы и поставить произведению оценку в диапазоне от одного до десяти. Из пользовательских оценок формируется усреднённая оценка произведения — рейтинг. Присутствует возможность комментирования отзывов.
+The YaMDb project collects user reviews on various works. Works are divided into categories: "Books", "Movies", and "Music". Each category contains specific works: books, movies, or music. A work can be assigned a genre. New genres can only be created by an administrator. Users can leave text reviews for works and rate them on a scale of one to ten. An average score (rating) is calculated based on user ratings. There is also a feature to comment on reviews.
 
-Функционал API:
-1) Просмотр произведений (кино, музыка, книги), которые подразделяются по жанрам и категориям..
-2) Возможность оставлять отзывы на произведения и ставить им оценки, на основе которых построена система рейтингов.
-3) Комментирование оставленных отзывов.
+API Features:
+1) Browsing works (movies, music, books), categorized by genres and categories.
+2) Ability to leave reviews on works and rate them, forming the basis of the rating system.
+3) Commenting on submitted reviews.
 
-Проект разработан командой из трех человек с использованием Git в рамках учебного курса Яндекс.Практикум.
+The project was developed by a team of three using Git as part of the Yandex.Practicum training course.
 
-## Стек технологий
+## Tech Stack
 
 Python 3.9
 Django 2.2.16
 Django REST Framework 3.12.4
 Django REST Framework simplejwt 5.1.0
 
-## Как запустить проект
+## How to Run the Project
 
-Клонировать репозиторий и перейти в него в командной строке:
+Clone the repository and navigate to it via the command line:
 
+```bash
+[https://github.com/AxelVonReems/yamdb_final.git](https://github.com/AxelVonReems/yamdb_final.git)
 ```
-https://github.com/AxelVonReems/yamdb_final.git
-```
 
-Перейти в папку с проектом
+Navigate to the project folder:
 
-```
+```bash
 cd yamdb_final
 ```
 
-Cоздать и активировать виртуальное окружение:
+Create and activate a virtual environment:
 
-```
+```bash
 WIN: python -m venv venv
 MAC: python3 -m venv venv
 ```
 
-```
+```bash
 WIN: source venv/scripts/activate
 MAC: source venv/bin/activate
 ```
 
-Установить зависимости из файла requirements.txt:
+Install dependencies from the `requirements.txt` file:
 
-```
+```bash
 WIN: python -m pip install --upgrade pip
 MAC: python3 -m pip install --upgrade pip
 ```
 
-```
+```bash
 pip install -r requirements.txt
 ```
 
-В папке infra создать и заполнить по образцу .env-файл:
+In the `infra` folder, create and populate a `.env` file using the following template:
 
-```
-DB_ENGINE=django.db.backends.postgresql - указываем, что работаем с postgresql
-DB_NAME=postgres - имя базы данных
-POSTGRES_USER=postgres - логин для подключения к базе данных
-POSTGRES_PASSWORD=postgres - пароль для подключения к БД
-DB_HOST=db - название сервиса (контейнера)
-DB_PORT=5432 - порт для подключения к БД 
-SECRET_KEY=ХХХХХХХХХХХХХХХХХ - секретный ключ проекта Django
-DEBUG='False' - настройка дебаггера
+```env
+DB_ENGINE=django.db.backends.postgresql - specifies that we are working with PostgreSQL
+DB_NAME=postgres - database name
+POSTGRES_USER=postgres - login for database connection
+POSTGRES_PASSWORD=postgres - password for database connection
+DB_HOST=db - service (container) name
+DB_PORT=5432 - port for database connection 
+SECRET_KEY=XXXXXXXXXXXXXXXXX - Django project secret key
+DEBUG='False' - debugger setting
 ```
 
-Собрать и запустить контейнер с помощью Docker-compose:
+Build and start the container using Docker Compose:
 
-```
+```bash
 docker-compose build
 docker-compose up
 ```
 
-Выполнить миграции через Docker-compose:
+Apply migrations via Docker Compose:
 
-```
+```bash
 docker-compose exec web python manage.py makemigrations users  
 docker-compose exec web python manage.py migrate --noinput
 ```
 
-Собрать статику:
+Collect static files:
 
-```
+```bash
 docker-compose exec web python manage.py collectstatic --no-input
 ```
 
-Создать через Docker-compose суперпользователя:
+Create a superuser via Docker Compose:
 
-```
+```bash
 docker-compose exec web python manage.py createsuperuser
 ```
 
-Заполнить базу начальными данными:
+Populate the database with initial data:
 
-```
+```bash
 docker-compose exec web python manage.py loaddata fixtures.json
 ```
 
-## Автор проекта
+## Author
 
-Алексей Смирнов. GitHub: https://github.com/AxelVonReems/
+Aleksei Smirnov. GitHub: https://github.com/AxelVonReems/
