@@ -2,6 +2,8 @@
 
 API for the YaMDb service - a platform for collecting user reviews on books, movies, and music.
 
+Deployed on Yandex Cloud in 2022. The server is no longer running, and the deploy workflow has been disabled; the workflow file is kept as an example of the CI/CD pipeline.
+
 ## Project Description
 
 The YaMDb project collects user reviews on various works. Works are divided into categories: "Books", "Movies", and "Music". Each category contains specific works: books, movies, or music. A work can be assigned a genre. New genres can only be created by an administrator. Users can leave text reviews for works and rate them on a scale of one to ten. An average score (rating) is calculated based on user ratings. There is also a feature to comment on reviews.
