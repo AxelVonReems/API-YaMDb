@@ -1,12 +1,6 @@
-[![Django-app workflow](https://github.com/AxelVonReems/yamdb_final/actions/workflows/yamdb_workflow.yml/badge.svg?branch=master)](https://github.com/AxelVonReems/yamdb_final/actions/workflows/yamdb_workflow.yml)
-
 # YaMDb Project
 
 API for the YaMDb service - a platform for collecting user reviews on books, movies, and music.
-
-Project URL: http://51.250.23.204/admin/
-
-Documentation URL: http://51.250.23.204/redoc/
 
 ## Project Description
 
@@ -31,13 +25,13 @@ Django REST Framework simplejwt 5.1.0
 Clone the repository and navigate to it via the command line:
 
 ```bash
-[https://github.com/AxelVonReems/yamdb_final.git](https://github.com/AxelVonReems/yamdb_final.git)
+git clone https://github.com/AxelVonReems/API-YaMDb.git
 ```
 
 Navigate to the project folder:
 
 ```bash
-cd yamdb_final
+cd API-YaMDb
 ```
 
 Create and activate a virtual environment:
@@ -108,6 +102,8 @@ Populate the database with initial data:
 docker-compose exec web python manage.py loaddata fixtures.json
 ```
 
-## Author
+## Authors
 
-Aleksei Smirnov. GitHub: https://github.com/AxelVonReems/
+Team project (3 developers) built in 2022 for the Yandex Practicum Python Developer course.
+My part: Review and Comment models, their views and endpoints, request permissions and the rating system.
+Aleksei Smirnov - GitHub: https://github.com/AxelVonReems
